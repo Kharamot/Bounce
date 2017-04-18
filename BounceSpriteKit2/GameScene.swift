@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let screenPhysicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         screenPhysicsBody.friction = 0.0
         screenPhysicsBody.categoryBitMask = 0b100
+        screenPhysicsBody.collisionBitMask = 0b110
+        screenPhysicsBody.contactTestBitMask = 0b001
         self.physicsBody = screenPhysicsBody
         
         redBallNode = self.childNode(withName: "RedBall") as! SKSpriteNode
@@ -54,10 +56,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         greenBallNode.name = "GreenBall"
         greenBallNode.physicsBody = SKPhysicsBody(circleOfRadius: 50.0)
         greenBallNode.physicsBody?.affectedByGravity = false
+        greenBallNode.physicsBody?.categoryBitMask = 0b100
         greenBallNode.physicsBody?.friction = 0.0
         greenBallNode.physicsBody?.restitution = 1.0
         greenBallNode.physicsBody?.linearDamping = 0.0
-        greenBallNode.physicsBody?.categoryBitMask = 0b001
+        greenBallNode.physicsBody?.categoryBitMask = 0b100
         greenBallNode.physicsBody?.collisionBitMask = 0b110
         greenBallNode.physicsBody?.contactTestBitMask = 0b001
         greenBallNode.position = position
@@ -96,7 +99,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if(!btnPressed){
             for touch in touches{
-                insertGreenBall(touch.location(in: self))
+                let point = touch.location(in: self)
+                let nodeArray = nodes(at: point)
+
+                if nodeArray.count == 0
+                {
+                    insertGreenBall(touch.location(in: self))
+                }
+                
             }
         }
     }
@@ -106,18 +116,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           let bodyNameB = String(describing: contact.bodyB.node?.name)
           print("Contact: \(bodyNameA), \(bodyNameB)")
         
-        //If a green ball is contacted remove it
-        if(bodyNameA.contains("GreenBall")){
-            let bodyA = contact.bodyA.node!
-            run(glassSoundAction)
-            bodyA.removeFromParent()
+        if(bodyNameB.contains("GreenBall") && bodyNameA.contains("GreenBall")){
+            
         }
-        
-        if(bodyNameB.contains("GreenBall")){
+        else if (bodyNameB.contains("GreenBall") && bodyNameA.contains("RedBall")){
             let bodyB = contact.bodyB.node!
             run(glassSoundAction)
             bodyB.removeFromParent()
         }
+        else{
+            run(bounceSoundAction)
+        }
+        
     }
 
     
