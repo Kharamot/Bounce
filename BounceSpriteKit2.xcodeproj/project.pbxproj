@@ -19,6 +19,10 @@
 		0944DBB51E96FB4200E25FC6 /* blueball.png in Resources */ = {isa = PBXBuildFile; fileRef = 0944DBB21E96FB4200E25FC6 /* blueball.png */; };
 		0944DBB61E96FB4200E25FC6 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = 0944DBB31E96FB4200E25FC6 /* brick.png */; };
 		0944DBB71E96FB4200E25FC6 /* greenball.png in Resources */ = {isa = PBXBuildFile; fileRef = 0944DBB41E96FB4200E25FC6 /* greenball.png */; };
+		2F1C9D621EA594D400081DD4 /* bounce.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D611EA594D400081DD4 /* bounce.mp3 */; };
+		2F1C9D641EA594D900081DD4 /* glassbreak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D631EA594D900081DD4 /* glassbreak.mp3 */; };
+		2F1C9D661EA594DD00081DD4 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D651EA594DC00081DD4 /* settings.png */; };
+		2F1C9D681EA594E000081DD4 /* WSU-Fight-Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D671EA594E000081DD4 /* WSU-Fight-Song.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		0944DBB21E96FB4200E25FC6 /* blueball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueball.png; sourceTree = "<group>"; };
 		0944DBB31E96FB4200E25FC6 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
 		0944DBB41E96FB4200E25FC6 /* greenball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenball.png; sourceTree = "<group>"; };
+		2F1C9D611EA594D400081DD4 /* bounce.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bounce.mp3; sourceTree = "<group>"; };
+		2F1C9D631EA594D900081DD4 /* glassbreak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = glassbreak.mp3; sourceTree = "<group>"; };
+		2F1C9D651EA594DC00081DD4 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		2F1C9D671EA594E000081DD4 /* WSU-Fight-Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "WSU-Fight-Song.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +87,11 @@
 				0944DBA71E945A8600E25FC6 /* LaunchScreen.storyboard */,
 				0944DBAA1E945A8600E25FC6 /* Info.plist */,
 				0944DBB21E96FB4200E25FC6 /* blueball.png */,
+				2F1C9D631EA594D900081DD4 /* glassbreak.mp3 */,
+				2F1C9D611EA594D400081DD4 /* bounce.mp3 */,
 				0944DBB31E96FB4200E25FC6 /* brick.png */,
+				2F1C9D671EA594E000081DD4 /* WSU-Fight-Song.mp3 */,
+				2F1C9D651EA594DC00081DD4 /* settings.png */,
 				0944DBB41E96FB4200E25FC6 /* greenball.png */,
 			);
 			path = BounceSpriteKit2;
@@ -144,10 +156,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1C9D661EA594DD00081DD4 /* settings.png in Resources */,
 				0944DBA41E945A8600E25FC6 /* Main.storyboard in Resources */,
 				0944DB9B1E945A8600E25FC6 /* GameScene.sks in Resources */,
 				0944DBB11E945DE700E25FC6 /* redball.png in Resources */,
+				2F1C9D681EA594E000081DD4 /* WSU-Fight-Song.mp3 in Resources */,
 				0944DBA61E945A8600E25FC6 /* Assets.xcassets in Resources */,
+				2F1C9D641EA594D900081DD4 /* glassbreak.mp3 in Resources */,
+				2F1C9D621EA594D400081DD4 /* bounce.mp3 in Resources */,
 				0944DBB71E96FB4200E25FC6 /* greenball.png in Resources */,
 				0944DBA91E945A8600E25FC6 /* LaunchScreen.storyboard in Resources */,
 				0944DB9D1E945A8600E25FC6 /* Actions.sks in Resources */,

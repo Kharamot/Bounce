@@ -8,12 +8,18 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var redBallNode: SKSpriteNode!
     var greenBallNode: SKSpriteNode!
     var startStopLabel: SKLabelNode!
+    let bounceSoundAction = SKAction.playSoundFileNamed("bounce.mp3", waitForCompletion: false)
+    let glassSoundAction = SKAction.playSoundFileNamed("glassbreak.mp3", waitForCompletion: false)
+    var audioPlayer: AVAudioPlayer!
+    
+    let musicURL = Bundle.main.url(forResource: "WSU-Fight-Song.mp3", withExtension: nil)
     
     override func didMove(to view: SKView) {
         
@@ -32,7 +38,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initGame () {
-        
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: musicURL!)
+        }catch{
+            print("error accessing music")
+        }
+        audioPlayer.volume = 0.25
+        audioPlayer.numberOfLoops = -1
     }
     
     func insertGreenBall(_ position: CGPoint)
@@ -56,11 +68,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.isPaused = false
         self.startStopLabel.text = "Stop"
         redBallNode.physicsBody?.applyImpulse(CGVector(dx: 200.0, dy: 200.0))
+        self.audioPlayer.play()
     }
     
     func pauseGame () {
         self.isPaused = true
         self.startStopLabel.text = "Start"
+        self.audioPlayer.pause()
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -94,11 +109,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //If a green ball is contacted remove it
         if(bodyNameA.contains("GreenBall")){
             let bodyA = contact.bodyA.node!
+            run(glassSoundAction)
             bodyA.removeFromParent()
         }
         
         if(bodyNameB.contains("GreenBall")){
             let bodyB = contact.bodyB.node!
+            run(glassSoundAction)
             bodyB.removeFromParent()
         }
     }
