@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,9 +23,89 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="NcJ-Wc-xbT" kind="show" identifier="gotosettings" id="jgj-M7-CWt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="bwG-8n-Dxx">
+            <objects>
+                <viewController id="NcJ-Wc-xbT" customClass="SettingsViewController" customModule="BounceSpriteKit2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Guo-nM-TPh"/>
+                        <viewControllerLayoutGuide type="bottom" id="BAC-Ko-O49"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xcJ-Y3-dW6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-3G-IcA">
+                                <rect key="frame" x="152" y="28" width="71" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxg-uv-ZBY">
+                                <rect key="frame" x="24" y="75" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ie-xS-ejJ">
+                                <rect key="frame" x="24" y="111" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOZ-xC-8zp">
+                                <rect key="frame" x="318" y="70" width="51" height="31"/>
+                                <connections>
+                                    <action selector="soundEffectChanged:" destination="NcJ-Wc-xbT" eventType="valueChanged" id="i5H-C4-QnX"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tsc-au-k8v">
+                                <rect key="frame" x="318" y="106" width="51" height="31"/>
+                                <connections>
+                                    <action selector="backgroundMusicChanged:" destination="NcJ-Wc-xbT" eventType="valueChanged" id="6yK-du-XMD"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gR-jI-RSd">
+                                <rect key="frame" x="169" y="165" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="dLh-jT-drn" kind="unwind" unwindAction="unwindFromSettingsWithSender:" id="3lD-sj-olJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5ie-xS-ejJ" firstAttribute="top" secondItem="rxg-uv-ZBY" secondAttribute="bottom" constant="15" id="7TK-IZ-VIa"/>
+                            <constraint firstItem="RXZ-3G-IcA" firstAttribute="centerX" secondItem="xcJ-Y3-dW6" secondAttribute="centerX" id="7a0-xY-1pw"/>
+                            <constraint firstItem="5ie-xS-ejJ" firstAttribute="leading" secondItem="xcJ-Y3-dW6" secondAttribute="leadingMargin" constant="8" id="JFM-4M-KV9"/>
+                            <constraint firstItem="rxg-uv-ZBY" firstAttribute="leading" secondItem="xcJ-Y3-dW6" secondAttribute="leadingMargin" constant="8" id="Kge-kc-knr"/>
+                            <constraint firstItem="1gR-jI-RSd" firstAttribute="centerX" secondItem="xcJ-Y3-dW6" secondAttribute="centerX" id="Lzt-Ab-UR9"/>
+                            <constraint firstItem="aOZ-xC-8zp" firstAttribute="top" secondItem="RXZ-3G-IcA" secondAttribute="bottom" constant="19" id="MxN-e8-AOa"/>
+                            <constraint firstItem="Tsc-au-k8v" firstAttribute="top" secondItem="aOZ-xC-8zp" secondAttribute="bottom" constant="5" id="UW2-RQ-hYH"/>
+                            <constraint firstItem="1gR-jI-RSd" firstAttribute="top" secondItem="5ie-xS-ejJ" secondAttribute="bottom" constant="33" id="bV0-mC-OQC"/>
+                            <constraint firstItem="RXZ-3G-IcA" firstAttribute="top" secondItem="Guo-nM-TPh" secondAttribute="bottom" constant="8" id="cGH-AT-evh"/>
+                            <constraint firstItem="rxg-uv-ZBY" firstAttribute="top" secondItem="RXZ-3G-IcA" secondAttribute="bottom" constant="24" id="fI1-sn-dDC"/>
+                            <constraint firstItem="aOZ-xC-8zp" firstAttribute="trailing" secondItem="xcJ-Y3-dW6" secondAttribute="trailingMargin" constant="8" id="gBd-yV-tZr"/>
+                            <constraint firstItem="Tsc-au-k8v" firstAttribute="trailing" secondItem="xcJ-Y3-dW6" secondAttribute="trailingMargin" constant="8" id="ise-a9-fp2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ULT-im-9Us"/>
+                    <connections>
+                        <outlet property="backgroundMusicToggle" destination="Tsc-au-k8v" id="aUM-nl-T0c"/>
+                        <outlet property="soundEffectToggle" destination="aOZ-xC-8zp" id="pJu-VN-aGK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVb-2h-Su9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dLh-jT-drn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="40"/>
         </scene>
     </scenes>
 </document>

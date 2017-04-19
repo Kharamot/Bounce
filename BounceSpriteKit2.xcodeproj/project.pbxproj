@@ -22,7 +22,7 @@
 		2F1C9D641EA594D900081DD4 /* glassbreak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D631EA594D900081DD4 /* glassbreak.mp3 */; };
 		2F1C9D661EA594DD00081DD4 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D651EA594DC00081DD4 /* settings.png */; };
 		2F1C9D681EA594E000081DD4 /* WSU-Fight-Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D671EA594E000081DD4 /* WSU-Fight-Song.mp3 */; };
-		2F1C9D6A1EA59E0D00081DD4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C9D691EA59E0D00081DD4 /* Settings.bundle */; };
+		2F1C9D6C1EA6D31400081DD4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C9D6B1EA6D31400081DD4 /* SettingsViewController.swift */; };
 		B08CCDFD1EA6CE4F00B6879C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B08CCDFC1EA6CE4F00B6879C /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,7 @@
 		2F1C9D631EA594D900081DD4 /* glassbreak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = glassbreak.mp3; sourceTree = "<group>"; };
 		2F1C9D651EA594DC00081DD4 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		2F1C9D671EA594E000081DD4 /* WSU-Fight-Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "WSU-Fight-Song.mp3"; sourceTree = "<group>"; };
-		2F1C9D691EA59E0D00081DD4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2F1C9D6B1EA6D31400081DD4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B08CCDFC1EA6CE4F00B6879C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +95,7 @@
 				2F1C9D671EA594E000081DD4 /* WSU-Fight-Song.mp3 */,
 				2F1C9D651EA594DC00081DD4 /* settings.png */,
 				0944DBB41E96FB4200E25FC6 /* greenball.png */,
-				2F1C9D691EA59E0D00081DD4 /* Settings.bundle */,
+				2F1C9D6B1EA6D31400081DD4 /* SettingsViewController.swift */,
 			);
 			path = BounceSpriteKit2;
 			sourceTree = "<group>";
@@ -165,7 +165,6 @@
 				2F1C9D681EA594E000081DD4 /* WSU-Fight-Song.mp3 in Resources */,
 				B08CCDFD1EA6CE4F00B6879C /* GameScene.sks in Resources */,
 				0944DBA61E945A8600E25FC6 /* Assets.xcassets in Resources */,
-				2F1C9D6A1EA59E0D00081DD4 /* Settings.bundle in Resources */,
 				2F1C9D641EA594D900081DD4 /* glassbreak.mp3 in Resources */,
 				2F1C9D621EA594D400081DD4 /* bounce.mp3 in Resources */,
 				0944DBB71E96FB4200E25FC6 /* greenball.png in Resources */,
@@ -186,6 +185,7 @@
 				0944DB9F1E945A8600E25FC6 /* GameScene.swift in Sources */,
 				0944DBA11E945A8600E25FC6 /* GameViewController.swift in Sources */,
 				0944DB991E945A8600E25FC6 /* AppDelegate.swift in Sources */,
+				2F1C9D6C1EA6D31400081DD4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

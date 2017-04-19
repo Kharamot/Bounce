@@ -18,6 +18,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let bounceSoundAction = SKAction.playSoundFileNamed("bounce.mp3", waitForCompletion: false)
     let glassSoundAction = SKAction.playSoundFileNamed("glassbreak.mp3", waitForCompletion: false)
     var audioPlayer: AVAudioPlayer!
+    var BGMusicOn: Bool = true
+    var SoundOn: Bool = true
+    let prefs = UserDefaults.standard
     
     let musicURL = Bundle.main.url(forResource: "WSU-Fight-Song.mp3", withExtension: nil)
     
@@ -47,6 +50,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         audioPlayer.volume = 0.25
         audioPlayer.numberOfLoops = -1
+        
+        
+        
     }
     
     func insertGreenBall(_ position: CGPoint)
@@ -68,10 +74,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func startGame () {
+        //vc = self.view!.window!.rootViewController?.
         self.isPaused = false
         self.startStopLabel.text = "Stop"
         redBallNode.physicsBody?.applyImpulse(CGVector(dx: 200.0, dy: 200.0))
-        self.audioPlayer.play()
+        BGMusicOn = prefs.bool(forKey: "BGMusic")
+        if(BGMusicOn){
+            self.audioPlayer.play()
+        }
+        
     }
     
     func pauseGame () {
@@ -87,6 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let point = touch.location(in: self)
             let nodeArray = nodes(at: point)
             for node in nodeArray {
+                //print(node.name)
                 if node.name == "StartStop" {
                     btnPressed = true
                     if (self.isPaused) {
@@ -94,6 +106,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     } else {
                         self.pauseGame()
                     }
+                }
+                if node.name == "settings"
+                {
+                    //self.vc.doSeg()
+                    self.pauseGame()
+                    self.view!.window!.rootViewController?.performSegue(withIdentifier: "gotosettings", sender: self)
                 }
             }
         }
@@ -110,22 +128,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-
+    
     func didBegin(_ contact: SKPhysicsContact) {
           let bodyNameA = String(describing: contact.bodyA.node?.name)
           let bodyNameB = String(describing: contact.bodyB.node?.name)
           print("Contact: \(bodyNameA), \(bodyNameB)")
-        
+        SoundOn = prefs.bool(forKey: "Sound")
         if(bodyNameB.contains("GreenBall") && bodyNameA.contains("GreenBall")){
             
         }
         else if (bodyNameB.contains("GreenBall") && bodyNameA.contains("RedBall")){
             let bodyB = contact.bodyB.node!
-            run(glassSoundAction)
+            if(SoundOn){
+                run(glassSoundAction)
+            }
             bodyB.removeFromParent()
         }
         else{
-            run(bounceSoundAction)
+            if(SoundOn){
+                run(bounceSoundAction)
+            }
         }
         
     }
